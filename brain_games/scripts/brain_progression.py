@@ -27,6 +27,7 @@ def progression():
                 print('Correct!')
             else:
                 print(f"'{answer}' is wrong answer ;(. Correct answer was '{progression_array_copy[index]}'.")
+                print("Let's try again,", name + '!')
                 return False
         elif index == len(progression_array) - 1:
             if  int(answer) - progression_array[-2] == progression_array[-2] - progression_array[-3]:
@@ -34,6 +35,7 @@ def progression():
                 print('Correct!')
             else:
                 print(f"'{answer}' is wrong answer ;(. Correct answer was '{progression_array_copy[index]}'.")
+                print("Let's try again,", name + '!')
                 return False
         else:
             if (abs(int(answer) - progression_array[index - 1]) == abs(int(answer) - progression_array[index + 1])):
@@ -41,6 +43,7 @@ def progression():
                 print('Correct!')
             else:
                 print(f"'{answer}' is wrong answer ;(. Correct answer was '{progression_array_copy[index]}'.")
+                print("Let's try again,", name + '!')
                 return False
 
     if counter_progression == 3:
