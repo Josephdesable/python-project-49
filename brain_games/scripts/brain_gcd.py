@@ -28,5 +28,4 @@ def nod():
 def main():
     nod()    
 if __name__ == "__main__":  
-    nod()
-
+    main()

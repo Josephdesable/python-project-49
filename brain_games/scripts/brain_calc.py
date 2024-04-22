@@ -29,5 +29,5 @@ def calculate():
 def main():
     calculate()     
 if __name__ == "__main__":  
-    calculate()
+    main()
 
