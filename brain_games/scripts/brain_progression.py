@@ -33,7 +33,7 @@ def progression():
     for _ in range(3):
         start = random.randint(1, 20)
         end = random.randint(start + 10, 100)
-        length = random.randint(5, 10)
+        length = random.randint(5, min(10, end -start))
         step = (end - start) // length
         missing_index = random.randint(0, length - 1)
 
