@@ -1,37 +1,60 @@
 import prompt
 import random
+
+
+def is_prime(number):
+    for i in range(2, int(number ** 0.5) + 1):
+        if number % i == 0:
+            return False
+    return True
+
+
+def get_random_number():
+    return random.randint(2, 100)
+
+
+def ask_question(number):
+    print('Question:', number)
+    return prompt.string('Your answer: ')
+
+
+def check_answer(answer, number):
+    if (answer == 'yes' and is_prime(number)) or \
+            (answer == 'no' and not is_prime(number)):
+        print('Correct!')
+        return True
+    return False
+
+
 def easy_number():
-	counter_number = 0
-	print('Welcome to the Brain Games!')
-	name = prompt.string('May I have your name? ')
-	print('Hello,', name + '!')    
-	print('Answer "yes" if given number is prime. Otherwise answer "no".')
-	counter_answer = 0
-	for i in range(3):
-		number = random.randint(2, 100)
-		print('Question:', number)
-		answer = prompt.string('Your answer: ')
-		flag = True
-		for j in range(2, (number // 2 + 1)):	
-			if number % j == 0: 
-				flag = False
-		if answer == 'yes' and flag == True or answer == 'no' and flag == False:
-			counter_number += 1
-			print('Correct!')
-		elif answer != 'yes' and flag == True:
-			print("'no' is wrong answer ;(. Correct answer was 'yes'.")
-			print("Let's try again,", name + '!')
-			return False
-		elif answer != 'no' and flag == False:	
-			print("'yes' is wrong answer ;(. Correct answer was 'no'.")
-			print("Let's try again,", name + '!')
-			return False
-		if counter_number == 3:
-			print('Congratulations,', name + '!')
-			return True
-        		
-        		
+    counter_number = 0
+    print('Welcome to the Brain Games!')
+    name = prompt.string('May I have your name? ')
+    print('Hello,', name + '!')
+    print('Answer "yes" if given number is prime. Otherwise answer "no".')
+    for _ in range(3):
+        number = get_random_number()
+        answer = ask_question(number)
+        if check_answer(answer, number):
+            counter_number += 1
+        else:
+            correct_answer = 'yes' if is_prime(number) else 'no'
+            print(
+                f"'{answer}' is wrong answer ;"
+                f"(. Correct answer was '{correct_answer}'.")
+            print("Let's try again,", name + '!')
+            return False
+    print('Congratulations,', name + '!')
+    return True
+
+
 def main():
     easy_number()
-if __name__ == "__main__":  
+
+
+if __name__ == "__main__":
+    main()
+
+
+if __name__ == "__main__":
     main()
