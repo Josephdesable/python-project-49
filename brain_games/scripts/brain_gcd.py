@@ -8,7 +8,7 @@ def nod(number1, number2):
     return number1
 
 
-def main():
+def gcd_game():
     counter_nod = 0
     print('Welcome to the Brain Games!')
     name = prompt.string('May I have your name? ')
@@ -32,6 +32,10 @@ def main():
     if counter_nod == 3:
         print('Congratulations,', name + '!')
         return True
+
+
+def main():
+    gcd_game()
 
 
 if __name__ == "__main__":
